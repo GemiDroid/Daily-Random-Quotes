@@ -31,6 +31,7 @@ class RandomQuotesUseCase(
                     if (quote != null) {
                         getQuote.postValue(quote)
                         quotesDAO.saveQuotes(quote)
+                        getError.postValue(null)
                     }
                 }, {
                     getError.postValue(it)

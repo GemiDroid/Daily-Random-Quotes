@@ -37,11 +37,13 @@ class MainActivity : AppCompatActivity() {
         })
 
         randomQuotesViewModel.getError.observe(this, Observer {
-            Snackbar.make(
-                quote_author, getString(R.string.no_internet_msg),
-                Snackbar.LENGTH_SHORT
-            ).show()
-            Log.e(TAG, "onCreate: ${it.localizedMessage}")
+            if (it != null) {
+                Snackbar.make(
+                    quote_author, getString(R.string.no_internet_msg),
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                Log.e(TAG, "onCreate: ${it.localizedMessage}")
+            }
         })
 
         randomQuotesViewModel.getProgress.observe(this, Observer { isShown ->
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private fun animate(){
+    private fun animate() {
         val animation: Animation =
             AnimationUtils.loadAnimation(applicationContext, R.anim.animation)
         quote_content.startAnimation(animation)
