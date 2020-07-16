@@ -1,1 +1,1 @@
-# Daily-Random-Quotes
+# Daily Random Quotes 
